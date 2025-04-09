@@ -1,6 +1,6 @@
 # 🧾 FinTrack
 
-[:brazil: Versão em Português](docs/PortugueseREADME.md)
+[:brazil: Português](./Docs/PortugueseREADME.md)
 
 FinTrack is a financial tracking application designed to help users manage budgets and expenses effectively. This project includes a backend built with ASP.NET Core and PostgreSQL, all containerized using Docker.
 
