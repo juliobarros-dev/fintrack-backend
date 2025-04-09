@@ -9,10 +9,24 @@
     <ItemGroup>
         <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Dtos\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FinTrack.Domain.Models\FinTrack.Domain.Models.csproj" />
+      <ProjectReference Include="..\FinTrack.Infrastructure.Database\FinTrack.Infrastructure.Database.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="..\FinTrack.Infrastructure.Database\appsettings.database.json">
+            <Link>appsettings.database.json</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
 </Project>

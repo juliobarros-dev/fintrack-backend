@@ -1,6 +1,18 @@
 using Asp.Versioning;
+using FinTrack.Application.WebApi.Extensions;
+using FinTrack.Infrastructure.Database.Context;
+using FinTrack.Infrastructure.Database.Extensions;
+using FinTrack.Infrastructure.Database.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var basePath = typeof(Program).Assembly.GetDirectoryName();
+
+builder.Configuration
+	.SetBasePath(basePath)
+	.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+	.AddJsonFile("appsettings.database.json", optional: true, reloadOnChange: true)
+	.AddEnvironmentVariables();
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
@@ -11,6 +23,7 @@ builder.Services.AddApiVersioning(options =>
 	options.DefaultApiVersion = new ApiVersion(1, 0);
 });
 
+builder.Services.AddApplicationContext(builder.Configuration);
 
 var app = builder.Build();
 

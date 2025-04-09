@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinTrack.Domain.Models", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinTrack.Application.WebApi", "FinTrack.Application.WebApi\FinTrack.Application.WebApi.csproj", "{0901A09E-820A-44F0-BB78-73B30B818C56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinTrack.Infrastructure.Database", "FinTrack.Infrastructure.Database\FinTrack.Infrastructure.Database.csproj", "{851C1E64-2555-46A5-8BBF-2F102C252068}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,7 @@ Global
 		{118CC18E-6D40-41C5-AB33-4394CFB75623} = {AB7BA763-8AA6-4ACF-9B80-11EF5203B788}
 		{400419E3-3547-4F64-8683-7BAA000AF32A} = {2C90D90E-0E67-48F1-87A0-C206A91CA80E}
 		{0901A09E-820A-44F0-BB78-73B30B818C56} = {118CC18E-6D40-41C5-AB33-4394CFB75623}
+		{851C1E64-2555-46A5-8BBF-2F102C252068} = {C5376F11-9703-4ED7-A162-A7BA6D5B0175}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{400419E3-3547-4F64-8683-7BAA000AF32A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -35,5 +38,9 @@ Global
 		{0901A09E-820A-44F0-BB78-73B30B818C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0901A09E-820A-44F0-BB78-73B30B818C56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0901A09E-820A-44F0-BB78-73B30B818C56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{851C1E64-2555-46A5-8BBF-2F102C252068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{851C1E64-2555-46A5-8BBF-2F102C252068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{851C1E64-2555-46A5-8BBF-2F102C252068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{851C1E64-2555-46A5-8BBF-2F102C252068}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
