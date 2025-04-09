@@ -9,6 +9,7 @@
     <ItemGroup>
       <Folder Include="Implementations\" />
       <Folder Include="Mappings\" />
+      <Folder Include="Utils\" />
     </ItemGroup>
 
     <ItemGroup>

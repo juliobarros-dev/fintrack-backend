@@ -1,8 +1,6 @@
 using Asp.Versioning;
 using FinTrack.Application.WebApi.Extensions;
-using FinTrack.Infrastructure.Database.Context;
 using FinTrack.Infrastructure.Database.Extensions;
-using FinTrack.Infrastructure.Database.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 

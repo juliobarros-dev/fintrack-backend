@@ -2,7 +2,7 @@
 using FinTrack.Infrastructure.Database.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FinTrack.Infrastructure.Database.Context;
+namespace FinTrack.Infrastructure.Database.Implementations.Context;
 
 public class IncomeDbContext(DbContextOptions<IncomeDbContext> options) : DbContext(options), IIncomeDbContext
 {

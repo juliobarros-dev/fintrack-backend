@@ -1,4 +1,4 @@
-﻿using FinTrack.Infrastructure.Database.Context;
+﻿using FinTrack.Infrastructure.Database.Implementations.Context;
 using FinTrack.Infrastructure.Database.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
