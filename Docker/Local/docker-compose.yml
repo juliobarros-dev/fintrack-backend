@@ -11,7 +11,7 @@ services:
     ports:
       - "5442:5432"
     volumes:
-      - ../Scripts:/docker-entrypoint-initdb.d
+      - ./Scripts:/docker-entrypoint-initdb.d
     networks:
       - fintrack-net
 
