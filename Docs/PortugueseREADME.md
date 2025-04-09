@@ -70,7 +70,7 @@ FinTrack/
 ## 🌐 Acesso
 Quando tudo estiver rodando, acesse a API via:
 ```bash
-http://localhost:7019/swagger
+http://localhost:7019/
 ```
 
 ## 🧼 Como Parar Tudo
