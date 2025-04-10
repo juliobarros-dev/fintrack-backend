@@ -18,10 +18,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Dtos\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\FinTrack.Domain.Models\FinTrack.Domain.Models.csproj" />
       <ProjectReference Include="..\FinTrack.Infrastructure.Database\FinTrack.Infrastructure.Database.csproj" />
     </ItemGroup>
