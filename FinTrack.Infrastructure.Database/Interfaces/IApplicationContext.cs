@@ -1,6 +1,6 @@
 ﻿namespace FinTrack.Infrastructure.Database.Interfaces;
 
-public interface IExpenseDbContext
+public interface IApplicationContext
 {
 	
 }

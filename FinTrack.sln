@@ -16,6 +16,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinTrack.Application.WebApi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinTrack.Infrastructure.Database", "FinTrack.Infrastructure.Database\FinTrack.Infrastructure.Database.csproj", "{851C1E64-2555-46A5-8BBF-2F102C252068}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-CrossCutting", "0-CrossCutting", "{F2CD96F1-E724-4D1A-8024-DEA75BFF2A50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinTrack.CrossCutting", "FinTrack.CrossCutting\FinTrack.CrossCutting.csproj", "{5CA0C44A-FB5C-42DC-B595-D4BC4D156128}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +32,8 @@ Global
 		{400419E3-3547-4F64-8683-7BAA000AF32A} = {2C90D90E-0E67-48F1-87A0-C206A91CA80E}
 		{0901A09E-820A-44F0-BB78-73B30B818C56} = {118CC18E-6D40-41C5-AB33-4394CFB75623}
 		{851C1E64-2555-46A5-8BBF-2F102C252068} = {C5376F11-9703-4ED7-A162-A7BA6D5B0175}
+		{F2CD96F1-E724-4D1A-8024-DEA75BFF2A50} = {AB7BA763-8AA6-4ACF-9B80-11EF5203B788}
+		{5CA0C44A-FB5C-42DC-B595-D4BC4D156128} = {F2CD96F1-E724-4D1A-8024-DEA75BFF2A50}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{400419E3-3547-4F64-8683-7BAA000AF32A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -42,5 +48,9 @@ Global
 		{851C1E64-2555-46A5-8BBF-2F102C252068}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{851C1E64-2555-46A5-8BBF-2F102C252068}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{851C1E64-2555-46A5-8BBF-2F102C252068}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CA0C44A-FB5C-42DC-B595-D4BC4D156128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CA0C44A-FB5C-42DC-B595-D4BC4D156128}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CA0C44A-FB5C-42DC-B595-D4BC4D156128}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CA0C44A-FB5C-42DC-B595-D4BC4D156128}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

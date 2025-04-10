@@ -1,0 +1,17 @@
+﻿services:
+  webapi:
+    build:
+      context: ../../../
+      dockerfile: Docker/Local/Application/Dockerfile
+    container_name: fintrack_api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=postgres;Port=5432;Database=fintrack;Username=admin;Password=admin;Search Path=core;"
+    ports:
+      - "7019:8080"
+    networks:
+      - fintrack-net
+        
+networks:
+  fintrack-net:
+    external: true

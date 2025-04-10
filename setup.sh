@@ -1,26 +1,39 @@
 #!/bin/bash
+set -euo pipefail
 
-set -e
 cd "$(dirname "$0")"
 
-echo "🟡 Subindo containers da aplicação (API + DB)..."
+echo "🟡 Starting database container..."
 
-cd Docker/Local
+cd Docker/Local/Infrastructure/Database
 
-docker-compose -p fintrack up -d
+docker-compose -p fintrack_postgres up -d --build
 
-echo "⏳ Aguardando PostgreSQL ficar pronto..."
-until docker exec fintrack_db pg_isready -U admin > /dev/null 2>&1; do
+echo "⏳ Waiting for PostgreSQL to accept connections..."
+until docker exec fintrack_postgres pg_isready -U admin > /dev/null 2>&1; do
     sleep 1
 done
 
-echo "🟢 PostgreSQL está pronto!"
+sleep 5
 
-echo "🚀 Criando banco de dados fintrack (se ainda não existir)..."
-docker exec -i fintrack_db psql -U admin -d postgres -tc "SELECT 1 FROM pg_database WHERE datname = 'fintrack'" | grep -q 1 || \
-  docker exec -i fintrack_db psql -U admin -d postgres -c "CREATE DATABASE fintrack;"
+echo "🟢 PostgreSQL is ready!"
 
-echo "🚀 Criando schemas..."
-docker exec -i fintrack_db psql -U admin -d fintrack < ./Scripts/create_schemas.sql
+echo "🚀 Checking if the 'fintrack' database already exists..."
+if docker exec -i fintrack_postgres psql -U admin -d postgres -tAc "SELECT 1 FROM pg_database WHERE datname = 'fintrack';" | grep -qw 1; then
+  echo "✅ Database 'fintrack' already exists. Skipping creation."
+else
+  echo "🚧 Database does not exist yet. Creating..."
+  docker exec -i fintrack_postgres psql -U admin -d postgres -c "CREATE DATABASE fintrack;"
+  echo "✅ Database 'fintrack' created successfully."
+fi
 
-echo "✅ Everything is ready! Go to: http://localhost:7019/"
+echo "🚀 Creating schemas..."
+docker exec -i fintrack_postgres psql -U admin -d fintrack < ./Scripts/create_schemas.sql
+
+echo "🟡 Starting service container..."
+
+cd ../../Application
+
+docker-compose -p fintrack_app up -d --build
+
+echo "✅ All set! Access: http://localhost:7019/"

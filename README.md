@@ -47,7 +47,7 @@ This script will:
 
 ### 3. Enjoy FinTrack
 ```bash
-✅ Everything is ready! Go to: http://localhost:7019/
+✅ All set! Access: http://localhost:7019/
 ```
 
 ---
@@ -58,8 +58,15 @@ This script will:
 FinTrack/
 ├── Docker/
 │   └── Local/
-│       ├── docker-compose.yml
-│       └── Dockerfile
+│       └── Application/
+│       │   ├── docker-compose.yml
+│       │   └── Dockerfile
+│       └── Infrastructure/
+│       │   └── Database/
+│       │       ├── Scripts/
+│       │       │   └── create_schemas.sql
+│       └──     └── docker-compose.yml
+│       
 ├── Docs/
 ├── Scripts/
 │   ├── create_database.sql
@@ -69,30 +76,46 @@ FinTrack/
 └── README.md
 ```
 
+---
+
 ## 🌐 Access
 Once everything is up and running, access the API via:
 ```bash
 http://localhost:7019/
 ```
 
+---
+
 ## 🧼 How to Stop Everything
 To stop and remove the containers:
 ```bash
-cd Docker/Local
-docker-compose -p fintrack down
+cd Docker/Local/Application
+docker-compose -p fintrack_api down
+
+cd ../Infrastructure/Database
+docker-compose -p fintrack_postgres down
 ```
+Or use Docker Desktop
+
+---
 
 ## 🛠️ Troubleshooting
 - Port in use: Make sure port 7019 is not being used by another application.
 - Permission denied: If using Unix/macOS, ensure you’ve run chmod +x setup.sh.
 
+---
+
 ## 📌 Notes
-- The API runs with the ASPNETCORE_ENVIRONMENT=Local profile.
+- The API runs with the ASPNETCORE_ENVIRONMENT=Development
 - Uses custom network: fintrack-net
 - Database user: admin, password: admin
 
+---
+
 ## 🧑‍💻 Author
 Made with ❤️ by Julio Nascimento
+
+---
 
 ## 📃 License
 MIT

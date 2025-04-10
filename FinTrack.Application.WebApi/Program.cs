@@ -1,6 +1,9 @@
 using Asp.Versioning;
 using FinTrack.Application.WebApi.Extensions;
 using FinTrack.Infrastructure.Database.Extensions;
+using FinTrack.Infrastructure.Database.Implementations.Context;
+using FinTrack.Infrastructure.Database.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +15,10 @@ builder.Configuration
 	.AddJsonFile("appsettings.database.json", optional: true, reloadOnChange: true)
 	.AddEnvironmentVariables();
 
-builder.Services.AddControllers();
+builder.Services
+	.AddApplicationContext(builder.Configuration)
+	.AddControllers();
+
 builder.Services.AddOpenApi();
 builder.Services.AddApiVersioning(options =>
 {
@@ -21,7 +27,6 @@ builder.Services.AddApiVersioning(options =>
 	options.DefaultApiVersion = new ApiVersion(1, 0);
 });
 
-builder.Services.AddApplicationContext(builder.Configuration);
 
 var app = builder.Build();
 
@@ -31,8 +36,16 @@ if (app.Environment.IsDevelopment())
 	app.MapOpenApi();
 }
 
+using (var scope = app.Services.CreateScope())
+{
+	var context = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
+	context.Database.Migrate();
+}
+
 app.UseHttpsRedirection();
 
 app.MapControllers();
+
+app.UsePathBase("/fintrack");
 
 app.Run();

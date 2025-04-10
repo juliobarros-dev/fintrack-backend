@@ -3,10 +3,11 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /app
 
 # Copia a solution e os projetos
-COPY ../../FinTrack.sln ./
-COPY ../../FinTrack.Application.WebApi ./FinTrack.Application.WebApi
-COPY ../../FinTrack.Domain.Models ./FinTrack.Domain.Models
-COPY ../../FinTrack.Infrastructure.Database ./FinTrack.Infrastructure.Database
+COPY FinTrack.sln ./
+COPY FinTrack.CrossCutting ./FinTrack.CrossCutting
+COPY FinTrack.Application.WebApi ./FinTrack.Application.WebApi
+COPY FinTrack.Domain.Models ./FinTrack.Domain.Models
+COPY FinTrack.Infrastructure.Database ./FinTrack.Infrastructure.Database
 
 # Restaura e publica
 WORKDIR /app/FinTrack.Application.WebApi
